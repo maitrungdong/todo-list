@@ -1,0 +1,56 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1.8rem;
+  text-align: initial;
+  padding: 1rem;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  //reuse cái btn!
+  &__actions {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 2rem;
+    transition: all 0.2s;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--agree {
+      color: #008000;
+      border: 3px solid #008000;
+
+      &:hover {
+        background-color: #9ef01a;
+      }
+    }
+
+    &--cancel {
+      color: #ba181b;
+      border: 3px solid #ba181b;
+
+      &:hover {
+        background-color: #f29479;
+      }
+    }
+  }
+
+  &__title {
+    width: 80%;
+
+    &.done {
+      text-decoration: line-through;
+    }
+  }
+}

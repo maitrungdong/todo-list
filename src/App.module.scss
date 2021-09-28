@@ -1,0 +1,107 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+}
+input {
+  line-height: normal;
+}
+
+label,
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background: linear-gradient(to right, #5c3c8b, #b74077);
+
+  box-sizing: border-box;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.6rem;
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+
+  width: 52rem;
+  min-height: 65rem;
+
+  background-color: #161a2b;
+  text-align: center;
+  border-radius: 0.6rem;
+  padding: 4rem 1rem;
+
+  box-shadow: 0 1rem 2rem rgba(#000, 0.3);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-bottom: 2rem;
+
+  &__input {
+    font-size: inherit;
+    font-family: inherit;
+    background-color: rgb(116, 113, 113);
+    width: 30rem;
+    max-width: 30rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: 2px solid #0a85ed;
+    transition: transform 0.2s;
+
+    &::-webkit-input-placeholder {
+      color: rgb(204, 204, 204);
+    }
+
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.btn {
+  &--submit {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+
+    font-family: inherit;
+    background-color: #0a85ed;
+    color: #fff;
+    transition: transform 0.2s;
+    backface-visibility: hidden;
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
