@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-idle-timer": "^4.6.4",
@@ -37,7 +38,6 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^6.0.1",
     "sass-loader": "^12.1.0"
   }
 }
