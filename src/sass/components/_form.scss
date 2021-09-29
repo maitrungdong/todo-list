@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-bottom: 2rem;
+
+  &__input,
+  &__input:active {
+    font-size: inherit;
+    font-family: inherit;
+    color: $color-text;
+    background-color: $color-grey-white;
+    width: 30rem;
+    max-width: 30rem;
+    padding: 1rem 2rem;
+    border-radius: $border-common;
+    border: 2px solid $color-blue;
+    transition: transform 0.2s;
+
+    &::-webkit-input-placeholder {
+      color: $color-sub-text;
+    }
+
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
+}

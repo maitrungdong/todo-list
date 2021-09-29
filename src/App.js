@@ -1,4 +1,4 @@
-import classes from "./App.module.scss";
+import "./App.scss";
 import IdleTimer from "react-idle-timer";
 import { useState, useEffect } from "react";
 
@@ -6,62 +6,94 @@ import { useState, useEffect } from "react";
 import TodoList from "./components/TodoList/TodoList";
 import Header from "./components/Header/Header";
 
-const TODO_LIST = [
-  {
-    id: "td1",
-    title: "Learn HTML and CSS",
-    status: "done",
-  },
-  {
-    id: "td2",
-    title: "Learn Javascript ES6",
-    status: "new",
-  },
-  {
-    id: "td3",
-    title: "Learn ILETS",
-    status: "new",
-  },
-  {
-    id: "td4",
-    title: "Clean your house",
-    status: "done",
-  },
-  {
-    id: "td5",
-    title: "Luyện tập thể dục, thể thao",
-    status: "new",
-  },
-];
-
 function App() {
-  const [todoList, setTodoList] = useState(TODO_LIST);
+  const [todoList, setTodoList] = useState([]);
   const [todoInputValue, setTodoInputValue] = useState("");
 
-  const changeTodoInputHandler = (e) => {};
+  useEffect(() => {
+    const storedTodoList = localStorage.getItem("TodoList");
+    if (storedTodoList === null) return;
+    setTodoList(JSON.parse(storedTodoList));
+  }, []);
 
-  const submitFormHandler = () => {};
+  useEffect(() => {
+    localStorage.setItem("TodoList", JSON.stringify(todoList));
+  }, [todoList]);
+
+  const changeTodoInputHandler = (e) => {
+    setTodoInputValue(e.target.value);
+  };
+
+  const changeTodoStatusHandler = (todoId, status) => {
+    let updateTodoList = [...todoList];
+    updateTodoList = updateTodoList.map((todo) => {
+      if (todo.id === todoId) {
+        todo.status = status;
+      }
+      return todo;
+    });
+    setTodoList(updateTodoList);
+  };
+
+  const changeTodoTitleHandler = (todoId, title) => {
+    let updateTodoList = [...todoList];
+    updateTodoList = updateTodoList.map((todo) => {
+      if (todo.id === todoId) {
+        todo.title = title;
+      }
+      return todo;
+    });
+    setTodoList(updateTodoList);
+  };
+
+  const deleteTodoItemHandler = (todoId) => {
+    const updateTodoList = todoList.filter((todo) => todo.id !== todoId);
+    setTodoList(updateTodoList);
+  };
+
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+    if (todoInputValue.trim() === "") return;
+
+    setTodoList((prevState) => {
+      return [
+        {
+          id: Math.random().toString(),
+          title: todoInputValue,
+          status: "new",
+        },
+        ...prevState,
+      ];
+    });
+
+    setTodoInputValue("");
+  };
 
   return (
-    <div className={classes.app}>
+    <div className="app">
       <Header />
-      <div className={classes.form}>
+      <form className="form" onSubmit={submitFormHandler}>
         <input
           type="text"
-          className={classes.form__input}
+          className="form__input"
           value={todoInputValue}
           onChange={changeTodoInputHandler}
-          placeholder="Type something at here..."
+          placeholder="Type any tasks at here..."
         />
         <button
           type="submit"
           onClick={submitFormHandler}
-          className={[classes["btn"], classes["btn--submit"]].join(" ")}
+          className="btn btn--submit"
         >
           Submit
         </button>
-      </div>
-      <TodoList todoList={todoList} />
+      </form>
+      <TodoList
+        todoList={todoList}
+        onChangeTodoStatus={changeTodoStatusHandler}
+        onDeleteTodoItem={deleteTodoItemHandler}
+        onChangeTodoTitle={changeTodoTitleHandler}
+      />
     </div>
   );
 }

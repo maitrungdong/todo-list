@@ -1,25 +1,37 @@
+@import "../../sass/abstracts/variables";
+
+$todoItem-height: 5.2rem;
+
+$color-green-light: #9ef01a;
+$color-green: #008000;
+
+$color-red-light: #f29479;
+$color-red: #ba181b;
+
 .todo {
+  height: $todoItem-height;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 
   font-size: 1.8rem;
   text-align: initial;
   padding: 1rem;
+  border-bottom: 1px solid $color-grey-white;
 
   &:not(:last-child) {
     margin-bottom: 0.5rem;
   }
 
-  //reuse cái btn!
   &__actions {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.2rem;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem;
-    background-color: white;
     font-size: 2rem;
     transition: all 0.2s;
 
@@ -28,26 +40,42 @@
     }
 
     &--agree {
-      color: #008000;
-      border: 3px solid #008000;
+      color: $color-green;
+      border: 2px solid $color-green;
 
       &:hover {
-        background-color: #9ef01a;
+        background-color: $color-green-light;
       }
     }
 
     &--cancel {
-      color: #ba181b;
-      border: 3px solid #ba181b;
+      color: $color-red;
+      border: 2px solid $color-red;
 
       &:hover {
-        background-color: #f29479;
+        background-color: $color-red-light;
       }
     }
   }
 
   &__title {
-    width: 80%;
+    transition: all 0.15s ease;
+    flex: 1;
+    height: 4rem;
+
+    padding: 1rem 1rem;
+
+    font-size: inherit;
+    font-family: inherit;
+    background-color: inherit;
+    color: $color-text;
+
+    border-radius: 0.6rem;
+
+    &:focus {
+      background-color: $color-grey-white;
+      border: 2px solid $color-blue;
+    }
 
     &.done {
       text-decoration: line-through;

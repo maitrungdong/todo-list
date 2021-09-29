@@ -1,0 +1,58 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+
+input,
+input:active {
+  border: none;
+}
+
+button {
+  border: none;
+}
+
+input {
+  line-height: normal;
+}
+
+label,
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background: linear-gradient(to right, #5c3c8b, #b74077);
+
+  box-sizing: border-box;
+  font-family: $font-text;
+  font-size: 1.6rem;
+
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+}

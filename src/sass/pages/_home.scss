@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  flex-direction: column;
+
+  width: 52rem;
+  min-height: 65rem;
+
+  background-color: $color-blue-dark;
+
+  margin-top: 10rem;
+  padding: 4rem 1rem;
+
+  border-radius: $border-common;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+}

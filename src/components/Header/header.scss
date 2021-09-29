@@ -3,11 +3,12 @@
   color: #fff;
   margin-bottom: 1.5rem;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
   &__icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
   }
 
   &__gif {
