@@ -26,3 +26,17 @@
     }
   }
 }
+
+// For screen from 320px to 550px
+@media only screen and (min-width: 320px) and (max-width: 550px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    &__input,
+    &__input:active {
+      width: 90%;
+      max-width: 90%;
+    }
+  }
+}

@@ -3,7 +3,7 @@
   flex-direction: column;
 
   width: 52rem;
-  min-height: 65rem;
+  height: 65rem;
 
   background-color: $color-blue-dark;
 
@@ -12,4 +12,16 @@
 
   border-radius: $border-common;
   box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+}
+
+// For screen from 320px to 550px
+@media only screen and (min-width: 320px) and (max-width: 550px) {
+  .app {
+    width: 100vw;
+    height: 100vh;
+
+    margin-top: 0;
+    padding: 1rem 1rem;
+    border-radius: 0;
+  }
 }

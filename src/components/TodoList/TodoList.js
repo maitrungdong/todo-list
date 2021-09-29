@@ -27,7 +27,7 @@ function TodoList(props) {
         </ul>
       ) : (
         <p className="todos__note">
-          You have no any new tasks, enter a new task for today now!
+          You have no any new tasks, add a new task for today now!
         </p>
       )}
     </div>
