@@ -22,15 +22,22 @@ function TodoItem(props) {
     onChangeTodoTitle(id, titleInputValue);
   };
 
+  const changeTodoStatusHandler = () => {
+    const newStatus = status === "done" ? "new" : "done";
+    onChangeTodoStatus(id, newStatus);
+  };
+
   return (
     <li className="todo">
-      {status !== "done" && (
-        <i
-          className="fa fa-check todo__actions todo__actions--agree"
-          aria-hidden="true"
-          onClick={() => onChangeTodoStatus(id, "done")}
-        ></i>
-      )}
+      <i
+        className={
+          status === "done"
+            ? "fa fa-undo todo__actions todo__actions--agree"
+            : "fa fa-check todo__actions todo__actions--agree"
+        }
+        aria-hidden="true"
+        onClick={changeTodoStatusHandler}
+      ></i>
       <input
         type="text"
         className={status === "done" ? "todo__title done" : "todo__title"}
