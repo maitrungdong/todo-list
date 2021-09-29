@@ -1,5 +1,5 @@
 # For learning REACTJS
-The todo list website demo:
+The todo list website demo:\
 ![Todo list website](https://raw.githubusercontent.com/maitrungdong/todo-list/main/demo/demo-app.gif)\
 Watch live demo:
 
