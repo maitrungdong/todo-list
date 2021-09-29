@@ -40,7 +40,9 @@ function TodoItem(props) {
       ></i>
       <input
         type="text"
-        className={status === "done" ? "todo__title done" : "todo__title"}
+        className={
+          status === "done" ? "todo__title todo__title--done" : "todo__title"
+        }
         value={titleInputValue}
         onChange={changeTitleInputValueHandler}
         onBlur={submitTitleInputValueHandler}
